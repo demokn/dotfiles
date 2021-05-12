@@ -12,7 +12,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 userscripts=$HOME/.config/X11/xinitrc.d
 sysscripts=/etc/X11/xinit/xinitrc.d
 
-SESSION=${1:-xfce}
+SESSION=${1:-dwm}
 
 # merge in defaults and keymaps
 
@@ -83,7 +83,10 @@ get_prog(){
 
 exec $(get_prog)
 
-# 使用下面的 dbus-launch 方式启动, 会导致 dunst 启动失败, "Cannot connect to DBUS" 
+# 使用下面的 dbus-launch 方式启动, 在 lightDM 下会导致 dunst 出现问题
+# 1. dunst 启动成功, 但无法接收到 notify-send 的消息
+# 2. 启动 dwm 后, 再手动启动 dunst 会失败, "CRITICAL: cannot connect to dbus", 需要执行 export $(dbus-launch)
+# TODO: 原因待查
 # get_session(){
 # 	local dbus_args=(--sh-syntax --exit-with-session)
 # 	case "$SESSION" in

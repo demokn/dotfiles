@@ -1,4 +1,5 @@
 picom &
 setbg &
-pkill statusbar && statusbar -d &
+killall statusbar ; statusbar -d &
 dunst &
+fcitx-autostart &
