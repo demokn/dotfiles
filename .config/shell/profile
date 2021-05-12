@@ -1,0 +1,15 @@
+# Adds `~/.local/bin` to $PATH
+export PATH="$(find ~/.local/bin -type d -printf %p:)$PATH"
+
+# Default programs
+export EDITOR="vim"
+#export TERMINAL="st"
+#export BROWSER="chromium"
+
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
+export _JAVA_AWT_WM_NONREPARENTING=1  # Fix for Java applications in dwm
+
+alias dotfiles="/usr/bin/git --git-dir $HOME/.dotfiles --work-tree=$HOME"

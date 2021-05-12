@@ -1,0 +1,31 @@
+!! Transparency (0-1)
+*.alpha: 0.9
+
+Emacs.alpha: 90
+
+!! Set a default font and font size as below:
+*.font: monospace:size=10
+
+#include "xresources.d/nord"
+
+!! dwm config
+dwm.font2: JoyPixels:pixelsize=10:antialias=true:autohint=true
+
+dwm.normbordercolor: nord0
+dwm.normbgcolor: nord0
+dwm.normfgcolor: nord4
+dwm.selbordercolor: nord8
+dwm.selbgcolor: nord4
+dwm.selfgcolor: nord0
+
+dwm.borderpx: 3
+dwm.gappih: 20
+dwm.gappiv: 10
+dwm.gappoh: 10
+dwm.gappov: 20
+
+!! st config
+st.foreground: nord0
+st.background: nord4
+st.cursorColor: nord0
+
