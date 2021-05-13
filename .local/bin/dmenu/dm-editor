@@ -6,6 +6,6 @@ e=$(echo -e "emacs\nvim\nlibreoffice" | dmenu -i -p "Which editor?")
 case "$e" in
     #emacs) (ps -ef | grep "emacs --daemon" | grep -v "grep" 1>/dev/null 2>&1) & emacsclient -nc || emacs ;;
     emacs) emacsclient -c -a emacs ;;
-    vim) vim ;;
+    vim) ${TERMINAL:-st} -e "vim" ;;
     libreoffice) libreoffice ;;
 esac
