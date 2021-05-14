@@ -1,6 +1,6 @@
+killall statusbar ; statusbar -d &
 picom &
 setbg &
-killall statusbar ; statusbar -d &
 dunst &
 xbindkeys &
-fcitx-autostart &
+fcitx5 &
