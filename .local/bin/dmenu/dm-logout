@@ -7,6 +7,28 @@
 # if certain things happen, which is a good thing.  Otherwise, we can
 # get hidden bugs that are hard to discover.
 set -euo pipefail
+set -x
+
+logout() {
+    case $1 in
+        'dwm')
+            killall dwm
+
+            ;;
+        'Xfwm4')
+            if command -v xfce4-session-logout >/dev/null 2>&1; then
+                xfce4-session-logout --logout
+            else
+                pkill xfce4
+            fi
+
+            ;;
+        *)
+            pkill $1 || echo "Not support to logout WM $1"
+
+            ;;
+    esac
+}
 
 main() {
     # An array of options to choose.
@@ -18,45 +40,39 @@ main() {
     "Suspend"
     "Cancel")
 
-	# look up what managers are used (makes it more dynamic)
-    declare -a MANAGERS
-    while IFS= read -r manager
-    do
-        MANAGERS+=("${manager,,}")
-    done < <(grep 'Name' /usr/share/xsessions/*.desktop | awk -F"=" '{print $2}')
+    # determine which window manager is running
+    local manager=$(xprop -id $(xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{printf $5}') -notype -f _NET_WM_NAME 8t | grep "_NET_WM_NAME = " | cut -d' ' -f3 | cut -d'"' -f2)
 
     # Piping the above array into dmenu.
     # We use "printf '%s\n'" to format the array one item to a line.
     choice=$(printf '%s\n' "${options[@]}" | dmenu -i -p 'Shutdown menu:' "${@}")
 
-	# What to do when/if we choose one of the options.
-	case $choice in
-		'Logout')
-			for manager in "${MANAGERS[@]}"; do 
-				killall "${manager}" || output "Process ${manager} was not running."
-			done
-			;;
-		'Lock screen')
-			slock
-			;;
-		'Reboot')
-			systemctl reboot
-			;;
-		'Shutdown')
-			systemctl poweroff
-			;;
-		'Suspend')
-			systemctl suspend
-			;;
-		'Cancel')
-			exit 0
-			;;
-			# It is a common practice to use the wildcard asterisk symbol (*) as a final
-			# pattern to define the default case. This pattern will always match.
-		*)
-			exit 0
-			;;
-	esac
+    # What to do when/if we choose one of the options.
+    case $choice in
+        'Logout')
+            logout $manager
+            ;;
+        'Lock screen')
+            slock
+            ;;
+        'Reboot')
+            systemctl reboot
+            ;;
+        'Shutdown')
+            systemctl poweroff
+            ;;
+        'Suspend')
+            systemctl suspend
+            ;;
+        'Cancel')
+            exit 0
+            ;;
+        *)
+            # It is a common practice to use the wildcard asterisk symbol (*) as a final
+            # pattern to define the default case. This pattern will always match.
+            exit 0
+            ;;
+    esac
 }
 
 [[ "${BASH_SOURCE[0]}" == "${0}" ]] && main "$@"
