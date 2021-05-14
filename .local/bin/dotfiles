@@ -1,5 +1,26 @@
 #!/usr/bin/env bash
 #
 # dotfiles
+# Description: Store your dotfiles with a bare git repository
+# Link: https://www.atlassian.com/git/tutorials/dotfiles
+# Usage:
+# Starting from scratch
+# ```
+# DOTFILES_PATH=$HOME/.dotfiles
+# git init --bare $DOTFILES_PATH
+# alias dotfiles="git --git-dir=$DOTFILES_PATH --work-tree=$HOME"
+# dotfiles config --local status.showUntrackedFiles no
+# dotfiles add .somerc
+# dotfiles commit -m 'balabala'
+# ```
+#
+# Install your dotfiles onto a new system
+# ```
+# DOTFILES_PATH=$HOME/.dotfiles
+# git clone --bare https://github.com/YOUR/DOTFILES.git $DOTFILES_PATH
+# alias dotfiles="git --git-dir=$DOTFILES_PATH --work-tree=$HOME"
+# dotfiles config --local status.showUntrackedFiles no
+# dotfiles checkout
+# ```
 
-git --git-dir $HOME/.dotfiles --work-tree=$HOME "$@"
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME "$@"
