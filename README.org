@@ -1,0 +1,76 @@
+* 桌面效果
+
+  [[file:.local/share/screenshots/Screenshot_2021-05-15_00-35-13.png]]
+
+* 在用的系统
+
+  我当前在使用的系统是 =Manjaro Xfce4= 发行版， 再额外安装的 =dwm= 窗口管理器。
+
+  在登录页面可以切换窗口管理器。
+  需要做的就是 =cp .local/share/dwm.session /usr/share/xsessions/dwm.desktop= 。
+
+  当然在裸 arch 上安装好必须的软件包，也是可以正常使用的。
+
+* 依赖的软件包
+
+  #+begin_comment
+  给自己一个提示:
+  如果是裸 arch, 在安装系统时记得先安装好 =networkmanager= 和 =dhcpcd= ， 用于配置网络。
+  如果是在 virtualbox 中安装，还需要安装 =virtualbox-guest-utils= 。
+  #+end_comment
+
+  | #TAG | 软件                            | 用途                                                                                                 |
+  |------+---------------------------------+------------------------------------------------------------------------------------------------------|
+  |      | base-devel                      | 开发者必备工具集                                                                                     |
+  |      | git                             | the fast distributed version control system :)                                                       |
+  | G    | yay                             | 管理 arch 用户软件仓库                                                                               |
+  |      | xorg-server                     | is the graphical server                                                                              |
+  |      | xorg-xinit                      | starts the praphical server                                                                          |
+  |      | xorg-xwininfo                   | allows querying information about windows                                                            |
+  |      | xorg-xprop                      | is a tool for detecting window properties                                                            |
+  |      | xorg-xsetroot                   | allows you to tailor the appearance of the background ("root") window                                |
+  |      | xorg-xdpyinfo                   | aids with resolution determination and screen recording                                              |
+  | A    | libxft-bgra                     | is the client side font rendering library, with BGRA glyph (color emoji) rendering & scaling patches |
+  |      | picom                           | 独立的合成管理器，可以给不带合成功能的窗口管理器(如 dwm)带来淡入淡出､半透明､阴影等视觉效果           |
+  |      | xwallpaper                      | 轻量级桌面壁纸管理程序                                                                               |
+  |      | xbindkeys                       | 快捷键管理程序                                                                                       |
+  |      | libnotify                       | 桌面通知客户端                                                                                       |
+  |      | dunst                           | 桌面通知服务端                                                                                       |
+  |      | ttf-fira-code                   | 一个 monospace 字体                                                                                  |
+  |      | noto-fonts-emoji                | 支持 emoji 表情的字体                                                                                |
+  |      | wqy-zenhei                      | 中文字体                                                                                             |
+  |      | fcitx5                          | 输入法框架                                                                                           |
+  |      | fcitx5-qt                       | fcitx 对 Qt5 程序的支持                                                                              |
+  |      | fcitx5-gtk                      | fcitx 对 GTK 程序的支持                                                                              |
+  |      | fcitx5-rime                     | 中文输入法引擎                                                                                       |
+  |      | fcitx5-configtool               | fcitx GUI 配置工具                                                                                   |
+  | G    | https://github.com/demokn/dwm   | dwm 窗口管理器                                                                                       |
+  | G    | https://github.com/demokn/st    | st 终端模拟器                                                                                        |
+  | G    | https://github.com/demokn/dmenu | dmenu 程序启动器                                                                                     |
+
+* 如何使用
+
+  首先了解一下如何使用 =git= 管理自己的 =dotfiles= :
+  - 中文版: [[https://wrong.wang/blog/20190708-%E5%8F%AF%E8%83%BD%E6%98%AF%E7%9B%AE%E5%89%8D%E6%9C%80%E7%AE%80%E5%8D%95%E6%96%B9%E4%BE%BF%E7%9A%84%E7%AE%A1%E7%90%86dotfiles%E7%9A%84%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8%E8%A3%B8git%E4%BB%93%E5%BA%93/][可能是目前最简单方便的管理dotfiles的方法：使用裸Git仓库]]
+  - 英文版: [[https://www.atlassian.com/git/tutorials/dotfiles][The best way to store your dotfiles: A bare Git repository]]
+
+  #+begin_src sh
+    DOTFILES_PATH=$HOME/.dotfiles
+    git clone --bare https://github.com/demokn/dotfiles.git $DOTFILES_PATH
+    alias dotfiles="git --git-dir=$DOTFILES_PATH --work-tree=$HOME"
+    dotfiles config --local status.showUntrackedFiles no
+    dotfiles checkout
+  #+end_src
+
+  如果在 =checkout= 的时候有冲突的文件，可以使用下面的命令，将冲突的文件备份到 =dotfiles_backup= 目录下:
+  #+begin_src sh
+    mkdir -p dotfiles_backup && \
+        dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
+        xargs -I{} mv {} dotfiles_backup/{}
+  #+end_src
+
+* 快捷键
+
+  - =dwm= 的快捷键我都是保持默认的, 打了 =patch= 的也都是保留了 =patch= 中的默认快捷键
+  - 同样， =st= 的快捷键也都是保持默认的
+  - 对于其他启动外部程序的快捷键，是使用 =xbindkeys= 管理的，详见 =.xbindkeysrc=
