@@ -30,6 +30,27 @@ logout() {
     esac
 }
 
+lock() {
+    case $1 in
+        'dwm')
+            slock
+
+            ;;
+        'Xfwm4')
+            if command -v xflock4 >/dev/null 2>&1; then
+                xflock4
+            else
+                slock
+            fi
+
+            ;;
+        *)
+            slock
+
+            ;;
+    esac
+}
+
 main() {
     # An array of options to choose.
     declare -a options=(
@@ -53,7 +74,7 @@ main() {
             logout $manager
             ;;
         'Lock screen')
-            slock
+            lock $manager
             ;;
         'Reboot')
             systemctl reboot
