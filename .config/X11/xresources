@@ -18,13 +18,16 @@ dwm.selbordercolor: nord8
 dwm.selbgcolor: nord4
 dwm.selfgcolor: nord0
 
-dwm.borderpx: 3
+dwm.borderpx: 1
 dwm.gappih: 20
 dwm.gappiv: 10
 dwm.gappoh: 10
 dwm.gappov: 20
 
 !! st config
+st.font: monospace:size=12
+st.font2: JoyPixels:pixelsize=10:antialias=true:autohint=true
+
 st.foreground: nord0
 st.background: nord4
 st.cursorColor: nord0
