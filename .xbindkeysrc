@@ -1,17 +1,23 @@
 "dm-editor"
-    control+alt + e
+    Control+Alt + e
 
 "dm-browser"
-    control+alt + b
+    Control+Alt + b
 
 "dm-wifi"
-    control+alt + w
+    Control+Alt + w
 
 "dm-logout"
-    control+alt + l
+    Control+Alt + l
 
 "dm-websearch"
-    control+alt + s
+    Control+Alt + s
 
 "dm-emoji"
-    control+alt + u
+    Control+Alt + u
+
+"xbacklight -inc 10"
+    XF86MonBrightnessUp
+
+"xbacklight -dec 10"
+    XF86MonBrightnessDown
