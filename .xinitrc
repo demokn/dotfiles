@@ -4,18 +4,29 @@
 #
 # Executed by startx (run your window manager from here)
 
-userresources=$HOME/.config/X11/xresources
-usermodmap=$HOME/.config/X11/xmodmap
+#if test "x$XDG_CONFIG_HOME" = "x" ; then
+#    export XDG_CONFIG_HOME=$HOME/.config
+#fi
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+[ -d "$XDG_CONFIG_HOME"  ] || mkdir -p "$XDG_CONFIG_HOME"
+
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+[ -d "$XDG_CACHE_HOME"  ] || mkdir -p "$XDG_CACHE_HOME"
+
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+[ -d "$XDG_DATA_HOME"  ] || mkdir -p "$XDG_DATA_HOME"
+
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
+userresources=$HOME/.config/X11/xresources
+usermodmap=$HOME/.config/X11/xmodmap
 
-userscripts=$HOME/.config/X11/xinitrc.d
 sysscripts=/etc/X11/xinit/xinitrc.d
+userscripts=$HOME/.config/X11/xinitrc.d
 
 SESSION=${1:-dwm}
 
 # merge in defaults and keymaps
-
 if [ -f $sysresources ]; then
     xrdb -merge $sysresources
 fi
@@ -33,7 +44,6 @@ if [ -f "$usermodmap" ]; then
 fi
 
 # start some nice programs
-
 if [ -d "$sysscripts" ] ; then
     for f in $sysscripts/?*.sh ; do
         [ -x "$f" ] && . "$f"
@@ -114,3 +124,6 @@ exec $(get_prog)
 # }
 # 
 # exec $(get_session)
+
+# if we got here, then exec failed
+exit 1
