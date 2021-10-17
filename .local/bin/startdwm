@@ -1,5 +1,7 @@
 #!/bin/sh
 
+XINITRC=$HOME/.config/X11/xinitrc
+
 if test "x$DISPLAY" = "x" ; then
     echo "$0: Starting X server"
     prog=xinit
@@ -8,4 +10,4 @@ else
     prog=/bin/sh
 fi
 
-exec $prog $HOME/.xinitrc dwm
+exec $prog $XINITRC dwm
