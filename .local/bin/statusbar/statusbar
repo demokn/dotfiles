@@ -4,6 +4,7 @@ print_info () {
     echo "" \
         "$(sb-forecast) " \
         "$(sb-nettraf) " \
+        "$(sb-memory) " \
         "$(sb-battery) " \
         "$(sb-clock) " \
         "$(sb-internet)"
