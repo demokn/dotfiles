@@ -26,4 +26,8 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-date "+%Y %b %d (%a) $icon%I:%M%p"
+if [ "$LC_TIME" = "zh_CN.UTF-8" ]; then
+    date "+📅%b%d(%a) $icon%I:%M%p"
+else
+    date "+📅%b %d (%a) $icon%I:%M%p"
+fi
