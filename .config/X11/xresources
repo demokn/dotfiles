@@ -25,7 +25,7 @@ dwm.gappoh: 10
 dwm.gappov: 20
 
 !! st config
-st.font: monospace:size=12
+st.font: FiraCode:size=12
 st.font2: JoyPixels:pixelsize=14:antialias=true:autohint=true
 
 st.foreground: nord0
