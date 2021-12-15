@@ -33,7 +33,7 @@ logout() {
 lock() {
     case $1 in
         'dwm')
-            slock
+            slock & xset dpms force off
 
             ;;
         'Xfwm4')
