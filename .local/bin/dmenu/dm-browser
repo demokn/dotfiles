@@ -2,7 +2,7 @@
 #
 # dm-browser
 
-b=$(echo -e "chrome\nchromium\nfirefox\nbrave" | dmenu -i -p "Which browser?")
+b=$(echo -e "chrome\nfirefox\nbrave\nchromium" | dmenu -i -p "Which browser?")
 case "$b" in
     chrome) google-chrome-stable ;;
     chromium) chromium ;;
