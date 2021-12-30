@@ -1,5 +1,6 @@
 #!/bin/sh
 # end a command with ; to run in a terminal
+# end a command with ! to run in a terminal_hold
 
 term="${TERMINAL:-st} -e"
 cachedir=${XDG_CACHE_HOME:-"$HOME/.cache"}
@@ -18,12 +19,15 @@ run=$((echo "$most_used"; dmenu_path | grep -vxF "$most_used") | dmenu -i "$@")
 
 [ -z "$run" ] && exit 1
 
-(echo "$run"; head -n 99 "$cache") > "$cache.$$"
+(echo "$run"; head -n 199 "$cache") > "$cache.$$"
 mv "$cache.$$" "$cache"
 
 case "$run" in
-    #*\;) exec $(echo $term ${run%;}) ;;
-    *\;) $term ${run%;} ;;
+    # run in terminal_hold
+    *\!) exec $term sh -c "${run%!} && echo && echo Press Enter to kill me... && read line" ;;
+    # run in terminal
+    *\;) exec $(echo $term ${run%;}) ;;
+    # run in background
     *)   exec "$run" ;;
 esac
 
