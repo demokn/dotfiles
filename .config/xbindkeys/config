@@ -16,6 +16,9 @@
 "dm-emoji"
     Control+Alt + u
 
+"dm-shot"
+    Control+Alt + a
+
 "xbacklight -inc 10"
     XF86MonBrightnessUp
 
