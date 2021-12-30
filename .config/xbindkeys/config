@@ -21,3 +21,6 @@
 
 "xbacklight -dec 10"
     XF86MonBrightnessDown
+
+"flameshot gui"
+    Control+Shift + a
