@@ -76,3 +76,7 @@
   - =dwm= 的快捷键我都是保持默认的, 打了 =patch= 的也都是保留了 =patch= 中的默认快捷键
   - 同样， =st= 的快捷键也都是保持默认的
   - 对于其他启动外部程序的快捷键，是使用 =xbindkeys= 管理的，详见 =.config/xbindkeys/config=
+
+* 参考
+
+  - [[https://ratfactor.com/dwm][Dave's Visual Guide to dwm]]: 一图胜千言, 介绍 =dwm= 布局和快捷键
