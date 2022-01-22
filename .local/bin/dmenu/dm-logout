@@ -54,12 +54,13 @@ lock() {
 main() {
     # An array of options to choose.
     declare -a options=(
-    "Lock screen"
-    "Logout"
-    "Reboot"
-    "Shutdown"
-    "Suspend"
-    "Cancel")
+    "🔒 lock"
+    "🚪 logout"
+    "🐻 hibernate"
+    "💤 sleep"
+    "♻️ reboot"
+    "🖥️ shutdown"
+    "✖️ cancel")
 
     # determine which window manager is running
     local manager=$(xprop -id $(xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{printf $5}') -notype -f _NET_WM_NAME 8t | grep "_NET_WM_NAME = " | cut -d' ' -f3 | cut -d'"' -f2)
@@ -70,22 +71,25 @@ main() {
 
     # What to do when/if we choose one of the options.
     case $choice in
-        'Logout')
-            logout $manager
-            ;;
-        'Lock screen')
+        '🔒 lock')
             lock $manager
             ;;
-        'Reboot')
+        '🚪 logout')
+            logout $manager
+            ;;
+        '🐻 hibernate')
+            lock $manager ; systemctl hibernate
+            ;;
+        '💤 sleep')
+            lock $manager ; systemctl suspend
+            ;;
+        '♻️ reboot')
             systemctl reboot
             ;;
-        'Shutdown')
+        '🖥️ shutdown')
             systemctl poweroff
             ;;
-        'Suspend')
-            systemctl suspend
-            ;;
-        'Cancel')
+        '✖️ cancel')
             exit 0
             ;;
         *)
