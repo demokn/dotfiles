@@ -25,5 +25,14 @@
 "xbacklight -dec 10"
     XF86MonBrightnessDown
 
+"pamixer -t"
+    XF86AudioMute
+
+"pamixer --allow-boost -d 10"
+    XF86AudioLowerVolume
+
+"pamixer --allow-boost -i 10"
+    XF86AudioRaiseVolume
+
 "flameshot gui"
     Control+Shift + a

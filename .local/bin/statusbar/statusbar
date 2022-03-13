@@ -5,6 +5,8 @@ print_info () {
         "$(sb-forecast) " \
         "$(sb-nettraf) " \
         "$(sb-memory) " \
+        "$(sb-volume) " \
+        "$(sb-brightness) " \
         "$(sb-battery) " \
         "$(sb-clock) " \
         "$(sb-internet)"
