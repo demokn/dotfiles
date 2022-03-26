@@ -8,6 +8,7 @@
 😂 face with tears of joy; 1F602;
 🙂 slightly smiling face; 1F642;
 🙃 upside-down face; 1F643;
+🫠 melting face; 1FAE0;
 😉 winking face; 1F609;
 😊 smiling face with smiling eyes; 1F60A;
 😇 smiling face with halo; 1F607;
@@ -26,15 +27,19 @@
 🤪 zany face; 1F92A;
 😝 squinting face with tongue; 1F61D;
 🤑 money-mouth face; 1F911;
-🤗 hugging face; 1F917;
+🤗 smiling face with open hands; 1F917;
 🤭 face with hand over mouth; 1F92D;
+🫢 face with open eyes and hand over mouth; 1FAE2;
+🫣 face with peeking eye; 1FAE3;
 🤫 shushing face; 1F92B;
 🤔 thinking face; 1F914;
+🫡 saluting face; 1FAE1;
 🤐 zipper-mouth face; 1F910;
 🤨 face with raised eyebrow; 1F928;
 😐 neutral face; 1F610;
 😑 expressionless face; 1F611;
 😶 face without mouth; 1F636;
+🫥 dotted line face; 1FAE5;
 😏 smirking face; 1F60F;
 😒 unamused face; 1F612;
 🙄 face with rolling eyes; 1F644;
@@ -54,7 +59,7 @@
 🥵 hot face; 1F975;
 🥶 cold face; 1F976;
 🥴 woozy face; 1F974;
-😵 knocked-out face; 1F635;
+😵 face with crossed-out eyes; 1F635;
 🤯 exploding head; 1F92F;
 🤠 cowboy hat face; 1F920;
 🥳 partying face; 1F973;
@@ -63,6 +68,7 @@
 🤓 nerd face; 1F913;
 🧐 face with monocle; 1F9D0;
 😕 confused face; 1F615;
+🫤 face with diagonal mouth; 1FAE4;
 😟 worried face; 1F61F;
 🙁 slightly frowning face; 1F641;
 ☹️ frowning face; 2639 FE0F;
@@ -71,6 +77,7 @@
 😲 astonished face; 1F632;
 😳 flushed face; 1F633;
 🥺 pleading face; 1F97A;
+🥹 face holding back tears; 1F979;
 😦 frowning face with open mouth; 1F626;
 😧 anguished face; 1F627;
 😨 fearful face; 1F628;
@@ -153,11 +160,16 @@
 🖐️ hand with fingers splayed; 1F590 FE0F;
 ✋ raised hand; 270B;
 🖖 vulcan salute; 1F596;
+🫱 rightwards hand; 1FAF1;
+🫲 leftwards hand; 1FAF2;
+🫳 palm down hand; 1FAF3;
+🫴 palm up hand; 1FAF4;
 👌 OK hand; 1F44C;
 🤌 pinched fingers; 1F90C;
 🤏 pinching hand; 1F90F;
 ✌️ victory hand; 270C FE0F;
 🤞 crossed fingers; 1F91E;
+🫰 hand with index finger and thumb crossed; 1FAF0;
 🤟 love-you gesture; 1F91F;
 🤘 sign of the horns; 1F918;
 🤙 call me hand; 1F919;
@@ -167,6 +179,7 @@
 🖕 middle finger; 1F595;
 👇 backhand index pointing down; 1F447;
 ☝️ index pointing up; 261D FE0F;
+🫵 index pointing at the viewer; 1FAF5;
 👍 thumbs up; 1F44D;
 👎 thumbs down; 1F44E;
 ✊ raised fist; 270A;
@@ -175,6 +188,7 @@
 🤜 right-facing fist; 1F91C;
 👏 clapping hands; 1F44F;
 🙌 raising hands; 1F64C;
+🫶 heart hands; 1FAF6;
 👐 open hands; 1F450;
 🤲 palms up together; 1F932;
 🤝 handshake; 1F91D;
@@ -199,6 +213,7 @@
 👁️ eye; 1F441 FE0F;
 👅 tongue; 1F445;
 👄 mouth; 1F444;
+🫦 biting lip; 1FAE6;
 👶 baby; 1F476;
 🧒 child; 1F9D2;
 👦 boy; 1F466;
@@ -226,6 +241,7 @@
 💂 guard; 1F482;
 🥷 ninja; 1F977;
 👷 construction worker; 1F477;
+🫅 person with crown; 1FAC5;
 🤴 prince; 1F934;
 👸 princess; 1F478;
 👳 person wearing turban; 1F473;
@@ -234,6 +250,8 @@
 🤵 person in tuxedo; 1F935;
 👰 person with veil; 1F470;
 🤰 pregnant woman; 1F930;
+🫃 pregnant man; 1FAC3;
+🫄 pregnant person; 1FAC4;
 🤱 breast-feeding; 1F931;
 👼 baby angel; 1F47C;
 🎅 Santa Claus; 1F385;
@@ -247,6 +265,7 @@
 🧝 elf; 1F9DD;
 🧞 genie; 1F9DE;
 🧟 zombie; 1F9DF;
+🧌 troll; 1F9CC;
 💆 person getting massage; 1F486;
 💇 person getting haircut; 1F487;
 🚶 person walking; 1F6B6;
@@ -388,6 +407,7 @@
 🦈 shark; 1F988;
 🐙 octopus; 1F419;
 🐚 spiral shell; 1F41A;
+🪸 coral; 1FAB8;
 🐌 snail; 1F40C;
 🦋 butterfly; 1F98B;
 🐛 bug; 1F41B;
@@ -407,6 +427,7 @@
 💐 bouquet; 1F490;
 🌸 cherry blossom; 1F338;
 💮 white flower; 1F4AE;
+🪷 lotus; 1FAB7;
 🏵️ rosette; 1F3F5 FE0F;
 🌹 rose; 1F339;
 🥀 wilted flower; 1F940;
@@ -427,6 +448,8 @@
 🍁 maple leaf; 1F341;
 🍂 fallen leaf; 1F342;
 🍃 leaf fluttering in wind; 1F343;
+🪹 empty nest; 1FAB9;
+🪺 nest with eggs; 1FABA;
 🍇 grapes; 1F347;
 🍈 melon; 1F348;
 🍉 watermelon; 1F349;
@@ -460,6 +483,7 @@
 🧅 onion; 1F9C5;
 🍄 mushroom; 1F344;
 🥜 peanuts; 1F95C;
+🫘 beans; 1FAD8;
 🌰 chestnut; 1F330;
 🍞 bread; 1F35E;
 🥐 croissant; 1F950;
@@ -545,6 +569,7 @@
 🍻 clinking beer mugs; 1F37B;
 🥂 clinking glasses; 1F942;
 🥃 tumbler glass; 1F943;
+🫗 pouring liquid; 1FAD7;
 🥤 cup with straw; 1F964;
 🧋 bubble tea; 1F9CB;
 🧃 beverage box; 1F9C3;
@@ -555,6 +580,7 @@
 🍴 fork and knife; 1F374;
 🥄 spoon; 1F944;
 🔪 kitchen knife; 1F52A;
+🫙 jar; 1FAD9;
 🏺 amphora; 1F3FA;
 🌍 globe showing Europe-Africa; 1F30D;
 🌎 globe showing Americas; 1F30E;
@@ -617,6 +643,7 @@
 🌉 bridge at night; 1F309;
 ♨️ hot springs; 2668 FE0F;
 🎠 carousel horse; 1F3A0;
+🛝 playground slide; 1F6DD;
 🎡 ferris wheel; 1F3A1;
 🎢 roller coaster; 1F3A2;
 💈 barber pole; 1F488;
@@ -665,12 +692,14 @@
 🛤️ railway track; 1F6E4 FE0F;
 🛢️ oil drum; 1F6E2 FE0F;
 ⛽ fuel pump; 26FD;
+🛞 wheel; 1F6DE;
 🚨 police car light; 1F6A8;
 🚥 horizontal traffic light; 1F6A5;
 🚦 vertical traffic light; 1F6A6;
 🛑 stop sign; 1F6D1;
 🚧 construction; 1F6A7;
 ⚓ anchor; 2693;
+🛟 ring buoy; 1F6DF;
 ⛵ sailboat; 26F5;
 🛶 canoe; 1F6F6;
 🚤 speedboat; 1F6A4;
@@ -832,6 +861,7 @@
 🔮 crystal ball; 1F52E;
 🪄 magic wand; 1FA84;
 🧿 nazar amulet; 1F9FF;
+🪬 hamsa; 1FAAC;
 🎮 video game; 1F3AE;
 🕹️ joystick; 1F579 FE0F;
 🎰 slot machine; 1F3B0;
@@ -839,6 +869,7 @@
 🧩 puzzle piece; 1F9E9;
 🧸 teddy bear; 1F9F8;
 🪅 piñata; 1FA85;
+🪩 mirror ball; 1FAA9;
 🪆 nesting dolls; 1FA86;
 ♠️ spade suit; 2660 FE0F;
 ♥️ heart suit; 2665 FE0F;
@@ -934,6 +965,7 @@
 📟 pager; 1F4DF;
 📠 fax machine; 1F4E0;
 🔋 battery; 1F50B;
+🪫 low battery; 1FAAB;
 🔌 electric plug; 1F50C;
 💻 laptop; 1F4BB;
 🖥️ desktop computer; 1F5A5 FE0F;
@@ -1074,7 +1106,9 @@
 🩸 drop of blood; 1FA78;
 💊 pill; 1F48A;
 🩹 adhesive bandage; 1FA79;
+🩼 crutch; 1FA7C;
 🩺 stethoscope; 1FA7A;
+🩻 x-ray; 1FA7B;
 🚪 door; 1F6AA;
 🛗 elevator; 1F6D7;
 🪞 mirror; 1FA9E;
@@ -1095,6 +1129,7 @@
 🧻 roll of paper; 1F9FB;
 🪣 bucket; 1FAA3;
 🧼 soap; 1F9FC;
+🫧 bubbles; 1FAE7;
 🪥 toothbrush; 1FAA5;
 🧽 sponge; 1F9FD;
 🧯 fire extinguisher; 1F9EF;
@@ -1105,6 +1140,7 @@
 ⚱️ funeral urn; 26B1 FE0F;
 🗿 moai; 1F5FF;
 🪧 placard; 1FAA7;
+🪪 identification card; 1FAAA;
 🏧 ATM sign; 1F3E7;
 🚮 litter in bin sign; 1F6AE;
 🚰 potable water; 1F6B0;
@@ -1208,6 +1244,7 @@
 ➕ plus; 2795;
 ➖ minus; 2796;
 ➗ divide; 2797;
+🟰 heavy equals sign; 1F7F0;
 ♾️ infinity; 267E FE0F;
 ‼️ double exclamation mark; 203C FE0F;
 ⁉️ exclamation question mark; 2049 FE0F;
