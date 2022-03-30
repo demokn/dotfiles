@@ -28,7 +28,11 @@ dwm.gappov: 20
 st.font: FiraCode:size=12
 st.font2: JoyPixels:pixelsize=14:antialias=true:autohint=true
 
-st.foreground: nord0
-st.background: nord4
-st.cursorColor: nord0
+!! st.foreground: nord4
+!! st.background: nord0
+!! st.cursorColor: nord4
+st.background: #2E3440
+st.foreground: #D8DEE9
+st.cursorColor: nord7
+
 
