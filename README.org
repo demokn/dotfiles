@@ -1,6 +1,8 @@
 * 桌面效果
 
-  [[file:.local/share/screenshots/Screenshot_2021-05-15_00-35-13.png]]
+  [[file:.local/share/screenshots/Screenshot_2022-03-31_22-54-02.png]]
+
+  [[file:.local/share/screenshots/Screenshot_2022-03-31_22-53-37.png]]
 
 * 在用的系统
 
