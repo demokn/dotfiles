@@ -23,12 +23,15 @@
 #define nord14 #A3BE8C
 #define nord15 #B48EAD
 
-*.foreground:   nord4
-*.background:   nord0
-*.cursorColor:  nord4
-*fading: 35
-*fadeColor: nord3
+*.background: nord0
+*.foreground: nord4
+*.cursorColor: nord7
+*.revCursorColor: nord3
+*.selbgcolor: nord3
+*.selfgcolor: nord4
 
+! color[0-7] means: normal black, red, green, yellow, blue, magenta, cyan, white
+! color[8-15] means: bright black, red, green, yellow, blue, magenta, cyan, white
 *.color0: nord1
 *.color1: nord11
 *.color2: nord14
@@ -45,3 +48,15 @@
 *.color13: nord15
 *.color14: nord7
 *.color15: nord6
+
+dwm.normbordercolor: nord0
+dwm.normbgcolor: nord0
+dwm.normfgcolor: nord4
+dwm.selbordercolor: nord2
+dwm.selbgcolor: nord2
+dwm.selfgcolor: nord4
+
+dmenu.normbgcolor: nord0
+dmenu.normfgcolor: nord4
+dmenu.selbgcolor: nord8
+dmenu.selfgcolor: nord0

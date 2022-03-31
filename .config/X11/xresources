@@ -1,23 +1,16 @@
 !! Transparency (0-1)
 *.alpha: 0.9
-
 Emacs.alpha: 90
 
 !! Set a default font and font size as below:
 *.font: monospace:size=10
 !! Set a fallback font and font size (for dwm, dmenu, st) as below:
-*.font2: JoyPixels:pixelsize=10:antialias=true:autohint=true
+!*.font2: JoyPixels:pixelsize=10:antialias=true:autohint=true
+*.font2: NotoColorEmoji:pixelsize=10:antialias=true:autohint=true
 
-#include "xresources.d/nord"
+#include "xresources.d/themes/nord"
 
 !! dwm config
-dwm.normbordercolor: nord0
-dwm.normbgcolor: nord0
-dwm.normfgcolor: nord4
-dwm.selbordercolor: nord8
-dwm.selbgcolor: nord4
-dwm.selfgcolor: nord0
-
 dwm.borderpx: 1
 dwm.gappih: 20
 dwm.gappiv: 10
@@ -27,12 +20,3 @@ dwm.gappov: 20
 !! st config
 st.font: FiraCode:size=12
 st.font2: JoyPixels:pixelsize=14:antialias=true:autohint=true
-
-!! st.foreground: nord4
-!! st.background: nord0
-!! st.cursorColor: nord4
-st.background: #2E3440
-st.foreground: #D8DEE9
-st.cursorColor: nord7
-
-
