@@ -1,3 +1,24 @@
+# Run `xbindkeys -f ~/.config/xbindkeys/config --key`
+# to identify one key pressed
+
+"xbacklight -inc 5"
+    XF86MonBrightnessUp
+
+"xbacklight -dec 5"
+    XF86MonBrightnessDown
+
+"pamixer -t"
+    XF86AudioMute
+
+"pamixer --allow-boost -d 10"
+    XF86AudioLowerVolume
+
+"pamixer --allow-boost -i 10"
+    XF86AudioRaiseVolume
+
+"alacritty"
+    Mod4+Shift + apostrophe
+
 "dm-editor"
     Control+Alt + e
 
@@ -18,21 +39,6 @@
 
 "dm-shot"
     Control+Alt + a
-
-"xbacklight -inc 5"
-    XF86MonBrightnessUp
-
-"xbacklight -dec 5"
-    XF86MonBrightnessDown
-
-"pamixer -t"
-    XF86AudioMute
-
-"pamixer --allow-boost -d 10"
-    XF86AudioLowerVolume
-
-"pamixer --allow-boost -i 10"
-    XF86AudioRaiseVolume
 
 "flameshot gui"
     Control+Shift + a
