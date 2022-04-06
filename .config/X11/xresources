@@ -12,10 +12,10 @@ Emacs.alpha: 90
 
 !! dwm config
 dwm.borderpx: 1
-dwm.gappih: 20
-dwm.gappiv: 10
-dwm.gappoh: 10
-dwm.gappov: 20
+dwm.gappih: 30
+dwm.gappiv: 20
+dwm.gappoh: 20
+dwm.gappov: 30
 
 !! st config
 st.font: FiraCode:size=12
