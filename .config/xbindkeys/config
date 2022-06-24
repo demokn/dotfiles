@@ -19,6 +19,12 @@
 "rofi -show run"
     Mod4 + r
 
+"rofi -show drun"
+    Mod4+Shift + d
+
+"rofi -show ssh"
+    Mod4+Shift + s
+
 "alacritty"
     Mod4+Shift + apostrophe
 
