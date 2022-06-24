@@ -16,6 +16,9 @@
 "pamixer --allow-boost -i 10"
     XF86AudioRaiseVolume
 
+"rofi -show run"
+    Mod4 + r
+
 "alacritty"
     Mod4+Shift + apostrophe
 

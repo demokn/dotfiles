@@ -1,0 +1,19 @@
+configuration {
+    font: "FiraCode 10";
+    width: 30;
+    line-margin: 10;
+    lines: 6;
+    columns: 2;
+    show-icons: true;
+    modi: "drun,ssh,combi";
+    combi-modi: "drun,ssh,run";
+
+    drun-display-format: "{icon} {name}";
+    display-ssh:    " ";
+    display-run:    " ";
+    display-drun:   " ";
+    display-window: " ";
+    display-combi:  " ";
+}
+
+@theme "nord-dark"
