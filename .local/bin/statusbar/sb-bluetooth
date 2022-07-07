@@ -1,0 +1,10 @@
+#!/bin/sh
+
+status=$(systemctl is-active bluetooth.service)
+
+icon=""
+if [ "$status" == "active" ]; then
+    icon=""
+fi
+
+printf "%s\n" "${icon}"
