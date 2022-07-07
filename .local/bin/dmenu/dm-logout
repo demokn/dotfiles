@@ -57,7 +57,7 @@ main() {
     declare -a options=(
         "🔒 lock"
         "🚪 logout"
-        "🐻 hibernate"
+        #"🐻 hibernate" # I have no swap space
         "💤 sleep"
         "♻️ reboot"
         "🖥️ shutdown"
