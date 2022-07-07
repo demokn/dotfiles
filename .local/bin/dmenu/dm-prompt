@@ -5,4 +5,4 @@
 # For example:
 # `./dm-prompt "Do you want to shutdown?" "shutdown -h now"`
 
-[ "$(printf "No\nYes" | dmenu -i -p "$1" -nb "#D08770" -sb "#BF616A" -sf "#FFFFFF" -nf "#ECEFF4" )" = "Yes" ] && $2
+[ "$(printf "No\nYes" | dmenu -i -p "$1" -nb "#D08770" -sb "#BF616A" -sf "#FFFFFF" -nf "#ECEFF4")" = "Yes" ] && $2

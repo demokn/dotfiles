@@ -6,7 +6,8 @@ secs=600 # Download a new doppler radar if one hasn't been downloaded in $secs s
 radarloc="${XDG_CACHE_HOME:-$HOME/.cache}/radar"
 doppler="${XDG_CACHE_HOME:-$HOME/.cache}/doppler.gif"
 
-pickloc() { chosen="$(echo "Northeast
+pickloc() {
+    chosen="$(echo "Northeast
 Southeast
 PacNorthWest
 PacSouthWest
@@ -182,25 +183,29 @@ KJGX: Peachtree City/atlanta, GA
 KVNX: Norman, OK
 KVBX: Vandenberg Afb: Orcutt, CA" | dmenu -r -i -l 50 -p "Select a National Weather Service radar to use as default:" | sed "s/:.*//" | tr "[:lower:]" "[:upper:]")"
 
-# Sanity check of selection and ensure user did not escape.
-echo "$chosen" | grep -q "^[A-Z]\+$" && echo "$chosen" > "$radarloc" ;}
+    # Sanity check of selection and ensure user did not escape.
+    echo "$chosen" | grep -q "^[A-Z]\+$" && echo "$chosen" >"$radarloc"
+}
 
 getdoppler() {
-	loc="$(cat "$radarloc")"
-	notify-send "🌦️ Doppler RADAR" "Pulling most recent Doppler RADAR for $loc."
-	curl -sL "https://radar.weather.gov/ridge/lite/${loc}_loop.gif" > "$doppler" ;}
+    loc="$(cat "$radarloc")"
+    notify-send "🌦️ Doppler RADAR" "Pulling most recent Doppler RADAR for $loc."
+    curl -sL "https://radar.weather.gov/ridge/lite/${loc}_loop.gif" >"$doppler"
+}
 
-showdoppler() { setsid -f mpv --no-osc --loop=inf --no-terminal "$doppler" ;}
+showdoppler() { setsid -f mpv --no-osc --loop=inf --no-terminal "$doppler"; }
 
 case $BLOCK_BUTTON in
-	1) [ ! -f "$radarloc" ] && pickloc && getdoppler
-	[ $(($(date '+%s') - $(stat -c %Y "$doppler"))) -gt "$secs" ] && getdoppler
-	showdoppler ;;
-	2) pickloc && getdoppler && showdoppler ;;
-	3) notify-send "🗺️ Doppler RADAR module" "\- Left click for local Doppler RADAR.
+    1)
+        [ ! -f "$radarloc" ] && pickloc && getdoppler
+        [ $(($(date '+%s') - $(stat -c %Y "$doppler"))) -gt "$secs" ] && getdoppler
+        showdoppler
+        ;;
+    2) pickloc && getdoppler && showdoppler ;;
+    3) notify-send "🗺️ Doppler RADAR module" "\- Left click for local Doppler RADAR.
 - Middle click to update change RADAR location.
-After $secs seconds, new clicks will also automatically update the doppler RADAR."  ;;
-	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+After $secs seconds, new clicks will also automatically update the doppler RADAR." ;;
+    6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
 echo 🗺️

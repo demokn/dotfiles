@@ -15,10 +15,14 @@ ifinstalled pass pass-otp
 
 dir="${PASSWORD_STORE_DIR}"
 
-choice="$({ echo "🆕 add" ; echo "🕙 sync-time" ; ls ${dir}/*-otp.gpg ;} | sed "s/.*\///;s/-otp.gpg//" | dmenu -p "Pick a 2FA:")"
+choice="$({
+    echo "🆕 add"
+    echo "🕙 sync-time"
+    ls ${dir}/*-otp.gpg
+} | sed "s/.*\///;s/-otp.gpg//" | dmenu -p "Pick a 2FA:")"
 
 case $choice in
-    "🆕 add" )
+    "🆕 add")
         ifinstalled maim zbar xclip || exit 1
 
         temp="$dir/temp.png"
@@ -34,7 +38,7 @@ case $choice in
         name="${issuer#issuer=}"
 
         if echo "$info" | pass otp insert "$otp"; then
-            while true ; do
+            while true; do
                 export name="$(echo "$name" | dmenu -p "Give this One Time Password a one-word name:")"
                 echo "$name" | grep -q -- "^[A-z0-9-]\+$" && break
             done
@@ -45,16 +49,15 @@ case $choice in
         fi
 
         ;;
-    "🕙 sync-time" )
+    "🕙 sync-time")
         ifinstalled ntp || exit 1
         notify-send -u low "🕙 Synchronizing Time..." "Synching time with remote NTP servers..."
         updatedata="$(sudo ntpdate pool.ntp.org)" &&
             notify-send -u low "🕙 Synchronizing Time..." "Done. Time changed by ${updatedata#*offset }"
 
         ;;
-    * )
-        pass otp -c ${choice}-otp 
+    *)
+        pass otp -c ${choice}-otp
 
         ;;
 esac
-

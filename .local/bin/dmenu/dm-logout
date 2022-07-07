@@ -33,7 +33,8 @@ logout() {
 lock() {
     case $1 in
         'dwm')
-            slock & xset dpms force off
+            slock &
+            xset dpms force off
 
             ;;
         'Xfwm4')
@@ -54,13 +55,13 @@ lock() {
 main() {
     # An array of options to choose.
     declare -a options=(
-    "🔒 lock"
-    "🚪 logout"
-    "🐻 hibernate"
-    "💤 sleep"
-    "♻️ reboot"
-    "🖥️ shutdown"
-    "✖️ cancel")
+        "🔒 lock"
+        "🚪 logout"
+        "🐻 hibernate"
+        "💤 sleep"
+        "♻️ reboot"
+        "🖥️ shutdown"
+        "✖️ cancel")
 
     # determine which window manager is running
     local manager=$(xprop -id $(xprop -root -notype | awk '$1=="_NET_SUPPORTING_WM_CHECK:"{printf $5}') -notype -f _NET_WM_NAME 8t | grep "_NET_WM_NAME = " | cut -d' ' -f3 | cut -d'"' -f2)
@@ -78,10 +79,12 @@ main() {
             logout $manager
             ;;
         '🐻 hibernate')
-            lock $manager ; systemctl hibernate
+            lock $manager
+            systemctl hibernate
             ;;
         '💤 sleep')
-            lock $manager ; systemctl suspend
+            lock $manager
+            systemctl suspend
             ;;
         '♻️ reboot')
             systemctl reboot

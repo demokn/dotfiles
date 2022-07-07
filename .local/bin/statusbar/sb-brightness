@@ -3,13 +3,14 @@
 # Prints the current brightness.
 
 brightness() {
-    for bl in /sys/class/backlight/* ; do
-        [ -d "$bl"  ] || return 1
-        read -r cur < "$bl/brightness" ; read -r max < "$bl/max_brightness"
-        per="$(( cur * 100 / max  ))"
+    for bl in /sys/class/backlight/*; do
+        [ -d "$bl" ] || return 1
+        read -r cur <"$bl/brightness"
+        read -r max <"$bl/max_brightness"
+        per="$((cur * 100 / max))"
     done
 
-    echo $per 
+    echo $per
 }
 
 #bright="$(brightness)"
