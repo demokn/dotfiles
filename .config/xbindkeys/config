@@ -17,7 +17,7 @@
     XF86AudioRaiseVolume
 
 # Don't know why, but `sleep` is required. 
-"xrdb ~/.config/X11/xresources && xdotool sleep 0.2 key super+F5"
+"xrdb ~/.config/X11/xresources && xdotool sleep 0.8 key super+F5"
     Shift+Mod4 + r
 
 "rofi -show run"
