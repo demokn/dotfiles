@@ -7,3 +7,4 @@ dunst &
 # default is $HOME/.xbindkeysrc
 xbindkeys -f ${XDG_CONFIG_HOME:-$HOME/.config}/xbindkeys/config &
 fcitx5 &
+unclutter &

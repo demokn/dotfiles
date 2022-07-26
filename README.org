@@ -33,13 +33,14 @@
   |      | xorg-xsetroot                   | allows you to tailor the appearance of the background ("root") window                                |
   |      | xorg-xdpyinfo                   | aids with resolution determination and screen recording                                              |
   |      | xorg-xbacklight                 | 屏幕亮度调节, 如果是非 Intel CPU, 则使用 acpilight                                                   |
-  |      | slock                           | 锁屏工具                                                                                                 |
+  |      | slock                           | 锁屏工具                                                                                             |
   | A    | libxft-bgra                     | is the client side font rendering library, with BGRA glyph (color emoji) rendering & scaling patches |
   |      | picom                           | 独立的合成管理器，可以给不带合成功能的窗口管理器(如 dwm)带来淡入淡出､半透明､阴影等视觉效果           |
   |      | xwallpaper                      | 轻量级桌面壁纸管理程序                                                                               |
   |      | xbindkeys                       | 快捷键管理程序                                                                                       |
   |      | libnotify                       | 桌面通知客户端                                                                                       |
   |      | dunst                           | 桌面通知服务端                                                                                       |
+  |      | unclutter                       | 隐藏鼠标指针                                                                                         |
   |      | ttf-fira-code                   | 一个 monospace 字体                                                                                  |
   |      | noto-fonts-emoji                | 支持 emoji 表情的字体                                                                                |
   |      | wqy-zenhei                      | 中文字体                                                                                             |
