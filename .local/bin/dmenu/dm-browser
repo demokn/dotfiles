@@ -2,10 +2,11 @@
 #
 # dm-browser
 
-b=$(echo -e "chrome\nfirefox\nbrave\nchromium" | dmenu -i -p "Which browser?")
+b=$(echo -e "firefox\nlibrewolf\nbrave\nchromium\nchrome\n" | dmenu -i -p "Which browser?")
 case "$b" in
     chrome) google-chrome-stable ;;
     chromium) chromium ;;
     firefox) firefox ;;
+    librewolf) librewolf ;;
     brave) brave ;;
 esac
