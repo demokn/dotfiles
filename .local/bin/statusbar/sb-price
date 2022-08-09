@@ -20,7 +20,7 @@ updateprice() { ping -q -c 1 example.org >/dev/null 2>&1 &&
 [ "$(stat -c %x "$pricefile" 2>/dev/null | cut -d' ' -f1)" != "$(date '+%Y-%m-%d')" ] &&
     updateprice "$1"
 
-case $BLOCK_BUTTON in
+case $BUTTON in
     1) setsid "$TERMINAL" -e less -Srf "$chartfile" ;;
     2)
         notify-send -u low "$3 Updating..." "Updating $2 price..."

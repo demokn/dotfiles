@@ -1,4 +1,5 @@
-killall statusbar ; statusbar -d &
+#killall statusbar ; statusbar -d &
+dwmblocks &
 picom &
 setbg &
 # 解决首次进入 dwm 壁纸显示不完全, 有黑块的问题
