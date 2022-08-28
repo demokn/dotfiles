@@ -19,4 +19,4 @@ dwm.gappov: 30
 
 !! st config
 st.font: FiraCode:size=12
-st.font2: JoyPixels:pixelsize=14:antialias=true:autohint=true
+st.font2: NotoColorEmoji:pixelsize=14:antialias=true:autohint=true
