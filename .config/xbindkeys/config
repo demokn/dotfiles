@@ -1,19 +1,19 @@
 # Run `xbindkeys -f ~/.config/xbindkeys/config --key`
 # to identify one key pressed
 
-"xbacklight -inc 5"
+"xbacklight -inc 5 ; pkill -RTMIN+18 dwmblocks"
     XF86MonBrightnessUp
 
-"xbacklight -dec 5"
+"xbacklight -dec 5 ; pkill -RTMIN+18 dwmblocks"
     XF86MonBrightnessDown
 
-"pamixer -t"
+"pamixer -t ; pkill -RTMIN+10 dwmblocks"
     XF86AudioMute
 
-"pamixer --allow-boost -d 10"
+"pamixer --allow-boost -d 10 ; pkill -RTMIN+10 dwmblocks"
     XF86AudioLowerVolume
 
-"pamixer --allow-boost -i 10"
+"pamixer --allow-boost -i 10 ; pkill -RTMIN+10 dwmblocks"
     XF86AudioRaiseVolume
 
 # Don't know why, but `sleep` is required. 
@@ -38,7 +38,7 @@
 "dm-browser"
     Control+Alt + b
 
-"dm-wifi"
+"dm-wifi ; pkill -RTMIN+4 dwmblocks"
     Control+Alt + w
 
 "dm-logout"
