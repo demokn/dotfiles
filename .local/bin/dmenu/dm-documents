@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Set with the flags "-e", "-u","-o pipefail" cause the script to fail
+# if certain things happen, which is a good thing.  Otherwise, we can
+# get hidden bugs that are hard to discover.
+
+set -euo pipefail
+
+main() {
+    DMENU="${DMENU:-dmenu -i -l 20 -p}"
+    PDF_VIEWER="${PDF_VIEWER:-zathura}"
+    # For MacOS in terminal
+    #DMENU="${DMENU:-fzf --prompt}"
+    #PDF_VIEWER="${PDF_VIEWER:-open}"
+    files="$(find "$HOME" -maxdepth 4 -iname "*.pdf")"
+    choice=$(printf '%s\n' "${files[@]}" |
+        cut -d '/' -f4- |
+        sort -g |
+        ${DMENU} "📂 Open:" "$@") || exit 1
+    if [ "$choice" ]; then
+        "${PDF_VIEWER}" "$HOME/$choice"
+    else
+        echo "Program Terminated." && exit 0
+    fi
+}
+
+[[ "${BASH_SOURCE[0]}" == "${0}" ]] && main "$@"
