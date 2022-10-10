@@ -2,7 +2,12 @@
 
 # Shows the current moon phase.
 
-moonfile="${XDG_DATA_HOME:-$HOME/.local/share}/moonphase"
+moonfile="${XDG_DATA_HOME:-$HOME/.cache}/moonphase"
+
+[ "$(stat -c %s "$moonfile" 2>/dev/null)" = "0" ] &&
+    { [ "$(cat /sys/class/net/w*/operstate 2>/dev/null)" = "up" ] ||
+        [ "$(cat /sys/class/net/e*/operstate 2>/dev/null)" = "up" ]; } &&
+    rm -rf "$moonfile"
 
 [ "$(stat -c %y "$moonfile" 2>/dev/null | cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ] ||
     { curl -sf "wttr.in/?format=%m" >"$moonfile" || exit 1; }
