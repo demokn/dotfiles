@@ -1,0 +1,14 @@
+# 主题配置
+include themes/catppuccin-dark
+
+auto-reload yes
+#show-read-feeds no
+#error-log "~/.local/share/newsboat/error.log"
+
+datetime-format %Y-%m-%d
+article-sort-order date-desc
+feed-sort-order lastupdated
+
+download-full-page yes
+download-timeout 10
+download-retries 1
