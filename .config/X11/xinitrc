@@ -27,21 +27,10 @@ userscripts=$HOME/.config/X11/xinitrc.d
 SESSION=${1:-dwm}
 
 # merge in defaults and keymaps
-if [ -f $sysresources ]; then
-    xrdb -merge $sysresources
-fi
-
-if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
-fi
-
-if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
-fi
-
-if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
-fi
+[ -f "$sysresources" ] && xrdb -merge "$sysresources"
+[ -f "$userresources" ] && xrdb -merge "$userresources"
+[ -f "$sysmodmap" ] && xmodmap "$sysmodmap"
+[ -f "$usermodmap" ] && xmodmap "$usermodmap"
 
 # start some nice programs
 if [ -d "$sysscripts" ] ; then
