@@ -38,5 +38,5 @@ case $BUTTON in
 - 🌖: Waning Gibbous
 - 🌗: Last Quarter
 - 🌘: Waning Crescent" ;;
-    6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+    6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
