@@ -1,0 +1,6 @@
+patch:
+  # 使用默認的詞典文件
+  translator/dictionary: luna_pinyin
+  # 使用自定义的词典文件
+  #translator/dictionary: my_luna_pinyin_simp
+

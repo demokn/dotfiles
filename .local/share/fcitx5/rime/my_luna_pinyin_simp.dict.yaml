@@ -1,0 +1,28 @@
+# Rime dictionary
+# encoding: utf-8
+
+---
+# 这里的name字段不一定要和输入方案的名称一致
+# 只需要跟词典文件名保持一致即可
+name: my_luna_pinyin_simp
+version: "2024.01.29"
+sort: by_weight
+# use_preset_vocabulary: false
+# 导入其他词典文件
+import_tables:
+  # 以下词典下载自雾凇拼音的简体词库，需自行下载并按需启用
+  # https://github.com/iDvel/rime-ice
+  - dicts/8105     # 字表
+  # - cn_dicts/41448  # 大字表（按需启用）
+  - dicts/base     # 基础词库
+  - dicts/ext      # 扩展词库
+  - dicts/tencent  # 腾讯词向量（大词库，部署时间较长）
+  - dicts/others   # 一些杂项
+
+  ## 建议把扩展词库放到下面，有重复词条时，最上面的权重生效
+  ## - dicts/mydict
+...
+
+# 按需添加
+词典	ci dian
+
