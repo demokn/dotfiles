@@ -55,12 +55,12 @@ lock() {
 main() {
     # An array of options to choose.
     declare -a options=(
-        "🔒 lock"
         "💤 sleep"
-        #"🐻 hibernate" # I have no swap space
-        "🚪 logout"
-        "♻️ reboot"
         "🖥️ shutdown"
+        "🔒 lock"
+        #"🐻 hibernate" # I have no swap space
+        "♻️ reboot"
+        "🚪 logout"
         "✖️ cancel")
 
     # determine which window manager is running
