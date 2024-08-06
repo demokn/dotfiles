@@ -1,7 +1,7 @@
 # lightweight and minimal dock
 plank &
 # continuous file synchronization program
-syncthing -no-browser &
+#syncthing -no-browser &
 # grabbing keys program for X
 # default is $HOME/.xbindkeysrc
 xbindkeys -f ${XDG_CONFIG_HOME:-$HOME/.config}/xbindkeys/config &
