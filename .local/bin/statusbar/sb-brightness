@@ -16,4 +16,15 @@ brightness() {
 #bright="$(brightness)"
 bright="$(xbacklight -get)"
 
+case $BUTTON in
+    1)
+        ;;
+    3)
+        notify-send "🔆 Brightness module" "\- Shows current brightness level."
+        ;;
+    6)
+        setsid -f "$TERMINAL" -e "$EDITOR" "$0"
+        ;;
+esac
+
 echo "🔆$bright%"
