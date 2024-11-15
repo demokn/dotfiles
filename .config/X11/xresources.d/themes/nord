@@ -52,7 +52,7 @@
 dwm.normbordercolor: nord0
 dwm.normbgcolor: nord0
 dwm.normfgcolor: nord4
-dwm.selbordercolor: nord8
+dwm.selbordercolor: nord10
 dwm.selbgcolor: nord2
 dwm.selfgcolor: nord8
 
