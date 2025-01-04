@@ -1,5 +1,5 @@
 configuration {
-    font: "FiraCode 10";
+    font: "FiraCode Nerd Font 11";
     width: 30;
     line-margin: 10;
     lines: 6;

@@ -18,40 +18,43 @@
 
 # Don't know why, but `sleep` is required. 
 "xrdb ~/.config/X11/xresources && xdotool sleep 0.8 key super+F5"
-    Shift+Mod4 + r
-
-"rofi -show run"
     Mod4 + r
 
+"rofi -show run"
+    Shift+Mod4 + r
+
 "rofi -show drun"
-    Mod4+Shift + d
+    Shift+Mod4 + d
 
 "rofi -show ssh"
-    Mod4+Shift + s
+    Shift+Mod4 + s
+
+"${TERMINAL} -e lfub"
+    Mod4 + e
 
 "alacritty"
-    Mod4+Shift + apostrophe
+    Shift+Mod4 + apostrophe
 
 "dm-editor"
-    Control+Alt + e
+    Control+Mod4 + e
 
 "dm-browser"
-    Control+Alt + b
+    Control+Mod4 + b
 
 "dm-wifi ; pkill -RTMIN+4 dwmblocks"
-    Control+Alt + w
+    Control+Mod4 + w
 
 "dm-logout"
-    Control+Alt + l
+    Control+Mod4 + l
 
 "dm-websearch"
-    Control+Alt + s
+    Control+Mod4 + s
 
 "dm-emoji"
-    Control+Alt + u
+    Control+Mod4 + u
 
 "dm-shot"
-    Control+Alt + a
+    Control+Mod4 + a
 
 "flameshot gui"
-    Control+Shift + a
+    Shift+Alt + a
