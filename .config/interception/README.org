@@ -1,0 +1,79 @@
+使用 caps2esc[fn::https://gitlab.com/interception/linux/plugins/caps2esc] 实用程序使 Caps Lock 键在单独按下时的作用类似于 Escape 键，在与其他键组合按下时作用类似于 Control 键。
+
+1. 安装
+#+begin_src shell
+  sudo pacman -S interception-caps2esc
+#+end_src
+
+2. 查看文件列表
+#+begin_src shell
+  pacman -Ql interception-tools
+#+end_src
+
+#+begin_example
+  interception-tools /etc/
+  interception-tools /etc/interception/
+  interception-tools /etc/interception/udevmon.d/
+  interception-tools /usr/
+  interception-tools /usr/bin/
+  interception-tools /usr/bin/intercept
+  interception-tools /usr/bin/mux
+  interception-tools /usr/bin/udevmon
+  interception-tools /usr/bin/uinput
+  interception-tools /usr/lib/
+  interception-tools /usr/lib/systemd/
+  interception-tools /usr/lib/systemd/system/
+  interception-tools /usr/lib/systemd/system/udevmon.service
+  interception-tools /usr/share/
+  interception-tools /usr/share/doc/
+  interception-tools /usr/share/doc/interception-tools/
+  interception-tools /usr/share/doc/interception-tools/README.md
+#+end_example
+
+3. 查看 =/usr/lib/systemd/system/udevmon.service= 文件中读取的默认配置文件路径
+
+#+begin_example
+  ➜ cat /usr/lib/systemd/system/udevmon.service
+  [Unit]
+  Description=Monitor input devices for launching tasks
+  Wants=systemd-udev-settle.service
+  After=systemd-udev-settle.service
+  Documentation=man:udev(7)
+
+  [Service]
+  ExecStart=/usr/bin/udevmon -c /etc/interception/udevmon.yaml
+  Nice=-20
+  Restart=on-failure
+  OOMScoreAdjust=-1000
+
+  [Install]
+  WantedBy=multi-user.target
+#+end_example
+
+4. 配置 =udevmon.yaml=
+
+#+begin_src yaml
+    - JOB: "intercept -g $DEVNODE | caps2esc -m 1 | uinput -d $DEVNODE"
+      DEVICE:
+        EVENTS:
+          EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
+#+end_src
+
+*TIPS:* 上面的 =udevmon= 配置将使 =Caps Lock= 作为 =Escape= 和 =Control= 工作， =Escape= 键仍表现为 =Escape= ,
+如果希望将 =Escape= 作为 =Caps Lock= 工作 ，可以将 =caps2esc -m 1= 替换为 =caps2esc= 。
+=caps2esc -m 1= 的含义是使用 =caps2esc= 的“最小模式”， =Escape= 键不受影响（有关文档，请参阅 =caps2esc -h= ）。
+
+5. 启动 =udevmon.service=
+
+      #+begin_src shell
+        # 设置开启自启动 & 立即启动一次
+        sudo systemctl enable --now udevmon.service
+
+        # 可选的: 验证 `udevmon` 服务启动成功
+        systemctl status udevmon
+      #+end_src
+
+现在就可以按下组合键 =<CapsLock>-L= 来尝试清空终端屏幕（等同与 =<Ctrl>-L= ）。
+
+** 引用
+1. [[https://ejmastnak.com/tutorials/arch/caps2esc/][Remap Caps Lock to Escape and Control]]
