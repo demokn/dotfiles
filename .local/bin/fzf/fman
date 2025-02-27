@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+man -k . \
+    | fzf --reverse --preview="echo {1,2} | sed 's/ (/./' | sed -E 's/\)\s*$//' | xargs man {} 2>/dev/null" \
+    | awk '{print $1 "." $2}' \
+    | tr -d '()' \
+    | xargs -r man
