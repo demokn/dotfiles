@@ -20,8 +20,14 @@ set ifs "\n"
 # leave some space at the top and the bottom of the screen
 set scrolloff 10
 
+# Use the `dim` attribute instead of underline for the cursor in the preview pane
+set cursorpreviewfmt "\033[7;2m"
+
 # use enter for shell commands
 map <enter> shell
+
+# show the result of execution of previous commands
+map ` !true
 
 # execute current file (must be executable)
 map x $$f
@@ -35,13 +41,15 @@ map O $mimeopen --ask $f
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
 # text files and a file opener for the rest.
-cmd open ${{
-    test -L $f && f=$(readlink -f $f)
-    case $(file --mime-type $f -b) in
-        text/*) $EDITOR $fx;;
-        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+cmd open &{{
+    case $(file --mime-type -Lb $f) in
+        text/*) lf -remote "send $id \$$EDITOR \$fx";;
+        *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
 }}
+
+# mkdir command. See wiki if you want it to select created dir
+map a :push %mkdir<space>
 
 # define a custom 'rename' command without prompt for overwrite
 # cmd rename %[ -e $1 ] && printf "file exists" || mv $f $1
@@ -60,7 +68,7 @@ cmd trash %set -f; mv $fx ~/.trash
 #     printf "$fx\n"
 #     printf "delete?[y/n]"
 #     read ans
-#     [ $ans = "y" ] && rm -rf $fx
+#     [ "$ans" = "y" ] && rm -rf $fx
 # }}
 
 # use '<delete>' key for either 'trash' or 'delete' command
