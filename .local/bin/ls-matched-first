@@ -1,0 +1,59 @@
+#!/bin/sh
+
+# Copied from https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/rotdir
+# 脚本实现了一个类似 ls 的功能，但会将匹配的文件放到第一位，然后按原顺序输出其他文件。
+#
+# 假设当前目录包含如下4个文件:
+# ls -1
+#   1.txt
+#   2.log
+#   3.png
+#   4.txt
+#
+# 那么执行以下命令时会分别输出:
+# ls-matched-first 3.png
+#   3.png
+#   4.txt
+#   1.txt
+#   2.log
+# ls-matched-first *log
+#   2.log
+#   3.png
+#   4.txt
+#   1.txt
+#
+# 如何实现的:
+# 1. awk 逻辑
+#   1) 维护一个 lines 变量存储 BASE 之前的文件列表。
+#   2) 遍历文件列表：
+#       - 如果找到 BASE，则 m = 1，从这行开始直接输出。(m means matched)
+#       - 如果 m == 0（未找到 BASE），将当前行追加到 lines 变量, 用换行符 "\n" 分割。
+#   3) 结束时（END 块），输出 lines（即 BASE 之前的文件）。
+#
+# 2. 为什么支持正则表达式
+#   脚本中并不是真的使用正则表达式来匹配文件名, 而是借助 Shell 的文件名展开（globbing）机制。
+#   当执行 ls-matched-first *.txt 时, 实际等同于执行 ls-matched-first 1.txt 4.txt
+#   在大多数 Shell（如 Bash、Zsh）中，*.txt 不是一个字符串，而是一个模式（Pattern）
+#   Shell 实际上会执行如下步骤：
+#     1) Shell 先解析 *.txt：
+#           - 查找当前目录中所有匹配 *.txt 的文件（如 1.txt 4.txt）。
+#     2) Shell 替换 *.txt 为匹配到的文件列表：
+#           - 最终命令变成：ls-matched-first 1.txt 4.txt
+#     3) 脚本接收到的参数：
+#           $1 → 1.txt
+#           $2 → 4.txt
+#           而 *.txt 根本不会出现在参数列表里。
+
+# When I open an image from the file manager in nsxiv (the image viewer), I want
+# to be able to press the next/previous keys to key through the rest of the
+# images in the same directory. This script "rotates" the content of a
+# directory based on the first chosen file, so that if I open the 15th image,
+# if I press next, it will go to the 16th etc. Autistic, I know, but this is
+# one of the reasons that nsxiv is great for being able to read standard input.
+
+[ -z "$1" ] && echo "usage: ls-matched-first [full-file-name or regex(shell globbing)] 2>&1" && exit 1
+base="$(basename "$1")"
+ls "$PWD" | awk -v BASE="$base" 'BEGIN { lines = ""; m = 0; }
+{ if ($0 == BASE) { m = 1; } }
+{ if (!m) { if (lines) { lines = lines"\n"; } lines = lines""$0; } else { print $0; } } 
+END { print lines; }'
