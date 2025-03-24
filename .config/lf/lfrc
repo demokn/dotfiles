@@ -118,9 +118,15 @@ cmd zip ${{
     rm -rf $1
 }}
 
-map . set hidden!
-
+# 自定义配置
 set icons
 set period 1
 set previewer ~/.config/lf/previewer.sh
 set cleaner ~/.config/lf/cleaner.sh
+
+# 快捷键
+map . set hidden!
+map <c-f> $lf -remote "send $id select \"$(fzf)\""
+map H cd ~
+map U $printf "%s" "$fx" | xclip -selection clipboard
+map u $printf "%s" "$fx" | sed 's/.*\///' | xclip -selection clipboard
