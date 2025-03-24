@@ -119,14 +119,61 @@ cmd zip ${{
 }}
 
 # 自定义配置
+cmd delete ${{
+    clear                           # 清屏
+    tput cup $(($(tput lines)/3))   # 将光标移动到屏幕 1/3 处
+    tput bold                       # 设置加粗文本样式
+
+    set -f                          # 禁用通配符展开（防止文件名被误解析）
+    printf "%s\n\t" "$fx"           # 打印要删除的文件名
+    printf "delete?[y/N]: "         # 提示用户确认
+
+    read -r ans                     # 读取用户输入
+    case "$ans" in
+        [Yy]) rm -rf -- "$fx" ;;    # 如果用户输入 'y' 或 'Y'，则删除文件
+        *) echo "Canceled." ;;      # 取消删除
+    esac
+}}
+
+cmd bulkrename ${{
+    tmpfile_old="$(mktemp)"  # 生成临时文件，存储旧文件名
+    tmpfile_new="$(mktemp)"  # 生成临时文件，存储新文件名
+
+    [ -n "$fs" ] && fs=$(basename -a $fs) || fs=$(ls)
+    # 如果 `fs` 变量（选中的文件列表）非空，则提取文件名，否则列出当前目录所有文件
+
+    echo "$fs" > "$tmpfile_old"  # 旧文件列表写入临时文件
+    echo "$fs" > "$tmpfile_new"  # 复制一份作为新文件列表
+    $EDITOR "$tmpfile_new"  # 让用户编辑 `tmpfile_new`
+
+    [ "$(wc -l < "$tmpfile_old")" -eq "$(wc -l < "$tmpfile_new")" ] || {
+        rm -f "$tmpfile_old" "$tmpfile_new"
+        exit 1
+    }
+    # 确保行数匹配，否则退出（防止用户意外删除或添加行）
+
+    paste "$tmpfile_old" "$tmpfile_new" | while IFS="$(printf '\t')" read -r src dst
+    do
+        [ "$src" = "$dst" ] || [ -e "$dst" ] || mv -- "$src" "$dst"
+    done
+    # 读取原始和修改后的文件名，若不同且目标文件不存在，则执行 `mv`
+
+    rm -f "$tmpfile_old" "$tmpfile_new"  # 清理临时文件
+    lf -remote "send $id unselect"  # 取消 `lf` 选中的文件
+}}
+
 set icons
 set period 1
 set previewer ~/.config/lf/previewer.sh
 set cleaner ~/.config/lf/cleaner.sh
 
 # 快捷键
+map <c-r> reload
 map . set hidden!
 map <c-f> $lf -remote "send $id select \"$(fzf)\""
 map H cd ~
 map U $printf "%s" "$fx" | xclip -selection clipboard
 map u $printf "%s" "$fx" | sed 's/.*\///' | xclip -selection clipboard
+
+map D delete
+map B bulkrename
